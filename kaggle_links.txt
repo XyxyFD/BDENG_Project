@@ -1,0 +1,3 @@
+https://www.kaggle.com/datasets/dilwong/flightprices
+https://www.kaggle.com/datasets/eliasdabbas/search-engine-results-flights-tickets-keywords
+https://www.kaggle.com/datasets/umerhaddii/european-flights-dataset

@@ -54,7 +54,7 @@ try:
     for city in iata_codes:
         url = f"https://www.kayak.de/explore/{city}-anywhere"
         driver.get(url)
-        time.sleep(random.uniform(20, 30))
+        time.sleep(random.uniform(50, 60))
 
         dateiname = f"Project/Html/kayakHTML/kayak_{city}_{heute.strftime('%m%d')}.html"
         with open(dateiname, "w", encoding="utf-8") as f:

@@ -51,9 +51,9 @@ driver = webdriver.Chrome(options=options)
 
 try:
     for city in iata_codes:
-        url = f"https://www.momondo.at/explore/{city}-anywhere/20250601,20250630?stops=0&tripdurationrange=3,7"
+        url = f"https://www.momondo.at/explore/{city}-anywhere"
         driver.get(url)
-        time.sleep(random.uniform(20, 30))
+        time.sleep(random.uniform(50, 60))
 
         dateiname = f"Project/Html/momondoHTML/momondo_{city}_{heute.strftime('%m%d')}.html"
         with open(dateiname, "w", encoding="utf-8") as f:

@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import seaborn as sns
 
 filepath_amadeus_BER = "../PricesCSV/amadeus_prices_BER.csv"
 filepath_amadeus_CDG = "../PricesCSV/amadeus_prices_CDG.csv"
@@ -62,4 +63,26 @@ for bar, preis in zip(bars, durchschnittspreise):
              ha='center', va='bottom', fontsize=10)
 
 plt.tight_layout()
+plt.show()
+
+# Eine neue Spalte 'Abflug' hinzufügen und alle DFs zusammenführen
+amadeus_BER['Abflug'] = 'BER'
+amadeus_CDG['Abflug'] = 'CDG'
+amadeus_IST['Abflug'] = 'IST'
+amadeus_LHR['Abflug'] = 'LHR'
+
+# Zusammenführen
+amadeus_all = pd.concat([amadeus_BER, amadeus_CDG, amadeus_IST, amadeus_LHR], ignore_index=True)
+
+plt.figure(figsize=(10, 6))
+
+# Boxplot erstellen
+sns.boxplot(data=amadeus_all, x='Abflug', y='MinPrice', palette='Set3')
+
+# Titel & Achsen
+plt.title("Preisverteilung nach Abflughafen (Amadeus)")
+plt.xlabel("Abflug")
+plt.ylabel("MinPrice (€)")
+plt.tight_layout()
+plt.savefig("Pictures/amadeus_origin_boxplot.png", dpi=300)
 plt.show()

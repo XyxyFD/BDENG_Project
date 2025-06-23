@@ -155,9 +155,13 @@ plt.tight_layout()
 plt.savefig("Pictures/durchschnittspreise_hauptstaedte_vergleich_opodo.png", dpi=300)
 plt.show()
 
+# Beispielhafte Reihenfolge (nach Domainreihenfolge angepasst):
+reihenfolge = ['it', 'at', 'es', 'pt', 'de', 'nl', 'fr']
+
+
 # Plot 2
 plt.figure(figsize=(10, 6))
-sns.boxplot(data=opodo_df, x='Domain', y='Preis', palette='Set2')
+sns.boxplot(data=opodo_df, x='Domain', y='Preis',order=reihenfolge, palette='Set2')
 plt.title("Preisverteilung je Domain (Opodo)")
 plt.xlabel("Domain")
 plt.ylabel("Flugpreis (€)")
